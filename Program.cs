@@ -28,15 +28,58 @@ int ReverseNumber(int n)
     return reversed;
 }
 
+void task19()
+{
+    Console.WriteLine("Задача 19");
+    int n = Convert.ToInt32(AskNumber());
+    int a = ReverseNumber(n);
+    if (n == a)
+    {
+        Console.WriteLine("да");
+    }
+    else
+    {
+        Console.WriteLine("нет");
+    }
+}
 
-int n = Convert.ToInt32(AskNumber());
-int a = ReverseNumber(n);
-if (n == a)
+/*
+Задача 21: Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+A (3,6,8); B (2,1,-7), -> 15.84
+A (7,-5, 0); B (1,-1,9) -> 11.53
+*/
+
+
+int[] AskCoordinate()
 {
-    Console.WriteLine("да");
+    int[] coordinates = new int[3];
+    int ctr = 0;
+    int temp = 0;
+    while (ctr < 3)
+    {
+        Console.WriteLine("введите координату");
+        coordinates[ctr] = Convert.ToInt32(Console.ReadLine());
+        ctr++;
+    }
+    return coordinates;
 }
-else
+
+double GetDistance(int[] a, int[] b)
 {
-    Console.WriteLine("нет");
+    double distance = Math.Sqrt(Math.Pow((a[0] - b[0]), 2) + Math.Pow((a[1] - b[1]), 2) + Math.Pow((a[2] - b[2]), 2));
+    return distance;
 }
+
+
+void task21()
+{
+    Console.WriteLine("Первая точка");
+    int [] PointA = AskCoordinate();
+    Console.WriteLine("Вторая точка");
+    int [] PointB = AskCoordinate();
+    Console.WriteLine(GetDistance(PointA, PointB));
+}
+
+task19();
+task21();
 
