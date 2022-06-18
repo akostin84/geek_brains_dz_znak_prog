@@ -7,7 +7,7 @@
 
 string AskNumber()
 {
-    Console.WriteLine("Введите ваше число");
+    Console.Write("Введите ваше число: ");
     string number = Console.ReadLine();
     return number;
 }
@@ -30,7 +30,7 @@ int ReverseNumber(int n)
 
 void task19()
 {
-    Console.WriteLine("Задача 19");
+    Console.WriteLine("*Задача 19. Проверка на палиндром*");
     int n = Convert.ToInt32(AskNumber());
     int a = ReverseNumber(n);
     if (n == a)
@@ -73,6 +73,7 @@ double GetDistance(int[] a, int[] b)
 
 void task21()
 {
+    Console.WriteLine("*Задача 21. Расстояние между 2 точками по 3 координатам*");
     Console.WriteLine("Первая точка");
     int [] PointA = AskCoordinate();
     Console.WriteLine("Вторая точка");
@@ -80,6 +81,30 @@ void task21()
     Console.WriteLine(GetDistance(PointA, PointB));
 }
 
+
+/*
+Задача 23: Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+3 -> 1, 8, 27.
+5 -> 1, 8, 27, 64, 125
+*/
+
+void PrintPower3(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        Console.WriteLine(Math.Pow(i, 3));
+    }
+}
+
+void task23()
+{
+    Console.WriteLine("*Задача 23. Вывод кубов*");
+    int n = Convert.ToInt32(AskNumber());
+    PrintPower3(n);
+}
+
+
 task19();
 task21();
+task23();
 
