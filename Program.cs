@@ -165,10 +165,62 @@ void task27()
 
 }
 
+
+/*
+Задача 29: Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
+-2, 1, 7, 5, 19 -> [1, -2, 5, 7, 19]
+6, 1, -33 -> [1, 6, -33]
+*/
+
+int[] CreateRandomIntArray(int n)
+{
+    int[] randomArray = new int[n];
+    Random rnd = new Random();
+    for (int i = 0; i < n; i++)
+    {
+        randomArray[i] = rnd.Next(-10, 11);
+    }
+    return randomArray;
+}
+
+int[] ApplyAbsToArray(int[] arrayToAbs)
+{
+    int n = arrayToAbs.Length;
+    int[] AbsArray = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        AbsArray[i] = Math.Abs(arrayToAbs[i]);
+    }
+    return AbsArray;
+}
+
+void PrintArray(int[] arrayToPrint)
+{
+    int n = arrayToPrint.Length;
+    for (int i = 0; i < n; i++)
+    {
+        Console.Write(arrayToPrint[i]);
+        Console.Write(" ");
+    }
+
+}
+
+void task29()
+{
+    Console.WriteLine("*Задача 29. Вывод массива отсортированного по модулю*");
+    int[] a = CreateRandomIntArray(8);
+    PrintArray(a);
+    Console.WriteLine();
+    int[] b = ApplyAbsToArray(a);
+    Array.Sort(b);
+    PrintArray(b);
+}
+
 //task19();
 //task21();
 //task23();
 
-//task25();
+task25();
 task27();
+task29();
 
