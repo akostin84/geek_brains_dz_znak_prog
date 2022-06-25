@@ -155,6 +155,28 @@ void task34()
 
 }
 
-//task25();
-//task27();
+/*
+*Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.*
+*/
+void task36()
+{
+    Console.WriteLine("*Задача 36. Сумма элементов на нечетных позициях*");
+    int n = 5;
+    int[] a = CreateRandomIntArray(n, 0, 10);
+    Console.WriteLine("Исходный массив");
+    PrintArray(a);
+    Console.Write("Сумма по нечетным позициям в массиве: ");
+    int ctr = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (!isEven(i + 1))
+        {
+            ctr = ctr + a[i];
+        };
+    }
+    Console.WriteLine(ctr);
+
+}
+
 task34();
+task36();
