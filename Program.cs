@@ -73,13 +73,13 @@ void task27()
 6, 1, -33 -> [1, 6, -33]
 */
 
-int[] CreateRandomIntArray(int n)
+int[] CreateRandomIntArray(int n, int lowerBound, int upperBound)
 {
     int[] randomArray = new int[n];
     Random rnd = new Random();
     for (int i = 0; i < n; i++)
     {
-        randomArray[i] = rnd.Next(-10, 11);
+        randomArray[i] = rnd.Next(lowerBound, upperBound);
     }
     return randomArray;
 }
@@ -103,13 +103,14 @@ void PrintArray(int[] arrayToPrint)
         Console.Write(arrayToPrint[i]);
         Console.Write(" ");
     }
+    Console.WriteLine();
 
 }
 
 void task29()
 {
     Console.WriteLine("*Задача 29. Вывод массива отсортированного по модулю*");
-    int[] a = CreateRandomIntArray(8);
+    int[] a = CreateRandomIntArray(8, -11, 10);
     PrintArray(a);
     Console.WriteLine();
     int[] b = ApplyAbsToArray(a);
@@ -117,6 +118,43 @@ void task29()
     PrintArray(b);
 }
 
-task25();
-task27();
-task29();
+/*
+Задача 34: 
+Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+*/
+
+bool isEven(int n)
+{
+    if(n % 2 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void task34()
+{
+    Console.WriteLine("*Задача 34. Подсчет четных в массиве*");
+    int n = 20;
+    int[] a = CreateRandomIntArray(n, 100, 1000);
+    Console.WriteLine("Исходный массив");
+    PrintArray(a);
+    Console.Write("Количество четных в массиве: ");
+    int ctr = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (isEven(a[i]))
+        {
+            ctr++;
+        };
+    }
+    Console.WriteLine(ctr);
+
+}
+
+//task25();
+//task27();
+task34();
