@@ -103,8 +103,37 @@ void task23()
     PrintPower3(n);
 }
 
+/*
+Задача 25: Напишите цикл, который принимает на вход два натуральных числа (A и B) и возводит число A в степень B.
+3, 5 -> 243
+2, 4 -> 16
+*/
 
-task19();
-task21();
-task23();
+void task25()
+{
+    Console.WriteLine("*Задача 25. Возведение в степень через цикл*");
+    int a = Convert.ToInt32(AskNumber());
+    int b = Convert.ToInt32(AskNumber());
+    int ctr = 1;
+    int temp = 1;
+    if (b == 0)
+    {
+        Console.WriteLine("1");
+    }
+    else 
+    {
+        while (ctr <= b)
+        {
+            temp = a * temp;
+            ctr++;
+        }
+        Console.WriteLine(temp);
+    }
+}
+
+
+//task19();
+//task21();
+//task23();
+task25();
 
