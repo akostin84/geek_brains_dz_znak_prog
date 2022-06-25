@@ -1,4 +1,5 @@
-﻿/* 
+﻿using System;
+/* 
 Задача 19: Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 14212 -> нет
 23432 -> да
@@ -131,9 +132,43 @@ void task25()
     }
 }
 
+/*
+Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+452 -> 11
+82 -> 10
+9012 -> 12
+*/
+int[] String2Array(string number)
+{
+    int stringLength = number.Length;
+    if (stringLength > 0)
+    {
+        int[] stringAsArray = new int[stringLength];
+        for (int i = 0; i < stringLength; i++)
+        {
+            stringAsArray[i] = Convert.ToInt32(Char.GetNumericValue(number[i]));
+        }
+        return stringAsArray;
+    }
+    else
+    {
+        int[] stringAsArray = new int[0];
+        return stringAsArray;
+    }
+}
+
+void task27()
+{
+    Console.WriteLine("*Задача 27. Сумма цифр в числе*");
+    int[] stringAsArray = String2Array(AskNumber());
+    Console.WriteLine(stringAsArray.Sum());
+
+}
 
 //task19();
 //task21();
 //task23();
-task25();
+
+//task25();
+task27();
 
