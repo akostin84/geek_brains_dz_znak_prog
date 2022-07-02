@@ -126,5 +126,34 @@ void task50()
     }
 }
 
+/*
+Задача 52: Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+*/
+
+void task52()
+{
+    Console.WriteLine("*Задача 52. Вывод среднего арифметического в столбце");
+    Console.Write("Введите число строк массива: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    Console.Write("Введите число столбцов массива: ");
+    int m = Convert.ToInt32(Console.ReadLine());
+    double[,] randMatrix = FillArray(n, m);
+    Console.WriteLine("Полученный массив:");
+    PrintMatrix(randMatrix);
+    for (int j = 0; j < m; j++)
+    {
+        double sumColumn = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sumColumn = sumColumn + randMatrix[i, j];
+        }
+        Console.WriteLine($"Среднее арифметическое в столбце {j + 1}: {sumColumn / n}");
+    }
+
+}
+
+
 //task47();
-task50();
+//task50();
+task52();
