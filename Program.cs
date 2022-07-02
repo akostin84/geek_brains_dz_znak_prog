@@ -14,7 +14,7 @@ double[,] FillArray(int rows, int columns)
     {
         for (int j = 0; j < columns; j++)
         {
-            randomArray[i, j] = Math.Round(rand.NextDouble() * 10 - 5, 2);
+            randomArray[i, j] = Math.Round(rand.NextDouble() * 10 - 5, 1);
         }
     }
     return randomArray;
