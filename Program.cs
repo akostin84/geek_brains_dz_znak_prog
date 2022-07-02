@@ -104,4 +104,27 @@ void task47()
     PrintMatrix(randMatrix);
 }
 
-task47();
+/*
+Задача 50: Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет
+*/
+
+void task50()
+{
+    Console.WriteLine("*Задача 50. Вывод элемента массива по позиции");
+    Console.Write("Введите номер строки массива: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Введите номер столбца массива: ");
+    int m = Convert.ToInt32(Console.ReadLine());
+    double[,] randMatrix = FillArray(10, 10);
+    if (n <= randMatrix.GetLength(0) && m <= randMatrix.GetLength(1) && n >= 0 && m >= 0)
+    {
+       Console.WriteLine(randMatrix[n,m]);
+    }
+    else
+    {
+        Console.WriteLine("Такого элемента нет");
+    }
+}
+
+//task47();
+task50();
