@@ -15,11 +15,10 @@ int[] CreateRandomIntArray(int n, int lowerBound, int upperBound)
 
 void PrintArray(int[] arrayToPrint)
 {
-    int n = arrayToPrint.Length;
-    for (int i = 0; i < n; i++)
+    Console.WriteLine("Вывод массива на печать...");
+    for (int i = 0; i < arrayToPrint.Length; i++)
     {
-        Console.Write(arrayToPrint[i]);
-        Console.Write(" ");
+        Console.Write(arrayToPrint[i] + "\t");
     }
     Console.WriteLine();
 
@@ -150,6 +149,30 @@ void task38()
     Console.WriteLine(maxVal - minVal);
 }
 
-task34();
-task36();
-task38();
+//task34();
+//task36();
+//task38();
+
+/* 
+Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+*/
+
+void task41()
+{
+    Console.WriteLine("*Задача 41. Число положительных в массиве*");
+    Console.Write("Введите число элементов в массиве: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    int ctr = 0;
+    int[] userArray = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        userArray[i] = Convert.ToInt32(Console.ReadLine());
+        if (userArray[i] > 0) ctr++;
+    }
+    Console.WriteLine("Введенный массив:");
+    PrintArray(userArray);
+    Console.WriteLine("Положительных элементов: " + ctr);
+}
+
+task41();
