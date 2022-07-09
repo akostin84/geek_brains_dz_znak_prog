@@ -94,6 +94,65 @@ void task52()
 
 }
 
-task47();
-task50();
-task52();
+//task47();
+//task50();
+//task52();
+
+/*
+Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+*/
+void SelectionSort(double[] arrayToSort)
+{
+    int minPosition = 0;
+    for (int i = 0; i < arrayToSort.Length - 1; i++)
+    {
+        minPosition = i;
+        for (int j = i + 1; j < arrayToSort.Length; j++)
+        {
+            if (arrayToSort[j] < arrayToSort[minPosition]) minPosition = j;
+        }
+        double temp = arrayToSort[i];
+        arrayToSort[i] = arrayToSort[minPosition];
+        arrayToSort[minPosition] = temp;
+        
+    }
+}
+
+void SelectionSortRow(double[,] arrayToSort)
+{
+    int minPosition = 0;
+    double temp = 0;
+    for (int row = 0; row < arrayToSort.GetLength(0); row++)
+    {
+        minPosition = 0;
+        for (int i = 0; i < arrayToSort.GetLength(1) - 1; i++)
+        {
+            minPosition = i;
+            for (int j = i + 1; j < arrayToSort.GetLength(1); j++)
+            {
+                if (arrayToSort[row, j] < arrayToSort[row, minPosition]) minPosition = j;
+            }
+            temp = arrayToSort[row, i];
+            arrayToSort[row, i] = arrayToSort[row, minPosition];
+            arrayToSort[row, minPosition] = temp;
+        }
+    }
+}
+
+void Task54()
+{
+    Console.WriteLine("*Задача 54. Сортировка двумерного массива действительных чисел");
+    Console.Write("Введите число строк массива: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    Console.Write("Введите число столбцов массива: ");
+    int m = Convert.ToInt32(Console.ReadLine());
+    double[,] randMatrix = FillArray(n, m);
+    Console.WriteLine("Массив до сортировки:");
+    PrintMatrix(randMatrix);
+    Console.WriteLine("Массив после сортировки:");
+    SelectionSortRow(randMatrix);
+    PrintMatrix(randMatrix);
+}
+
+Task54();
