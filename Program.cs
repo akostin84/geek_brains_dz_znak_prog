@@ -101,52 +101,53 @@ void Task56()
 /*
 Задача 58: Заполните спирально массив 4 на 4 числами от 1 до 16.
 */
+void FillRow(double[,] arrayToFill, int row, int startIndex, int lastIndex)
+{
+    Random rand = new Random();
+    for (int column = startIndex; column <= lastIndex; column++)
+    {
+        arrayToFill[row, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+}
+
+void FillColumn(double[,] arrayToFill, int column, int startIndex, int lastIndex)
+{
+    Random rand = new Random();
+    for (int row = startIndex; row <= lastIndex; row++)
+    {
+        arrayToFill[row, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+}
+
 void Task58()
 {
     Console.WriteLine("*Задача 58. Заполнить массив спирально");
     int n = 4;
     int m = 4;
-    Random rand = new Random();
-    double[,] randMatrix = new double[4, 4];
+    double[,] randMatrix = new double[n, m];
     Console.WriteLine("Полученный массив:");
-    PrintMatrix(randMatrix);
-    for (int column = 0; column < m; column++)
+    int rowMoves = n;
+    int columnMoves = m - 1;
+    int totalMoves = rowMoves + columnMoves;
+    int moveRow = 0;
+    int moveColumn = 0;
+    for (int move = 1; move <= totalMoves; move++)
     {
-        randMatrix[0, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
-    }
+        if (move % 2 != 0)
+        { // row move
+            moveRow++;
+            if (moveRow % 2 != 0) FillRow(randMatrix, (moveRow - 1) / 2, (moveRow - 1) / 2, n - (moveRow - 1) / 2 - 1);
+            if (moveRow % 2 == 0) FillRow(randMatrix, n - moveRow / 2, (moveRow - 1) / 2, n - moveRow / 2 - 1);
+        }
+        else
+        { // column move
+            moveColumn++;
+            if (moveColumn % 2 != 0) FillColumn(randMatrix, (m - (moveColumn - 1) / 2 ) - 1, (moveColumn + 1) / 2, m - moveColumn / 2 - 1);
+            if (moveColumn % 2 == 0) FillColumn(randMatrix, moveColumn / 2 - 1, (moveColumn + 1) / 2, m - moveColumn / 2 - 1);     
+        }
     PrintMatrix(randMatrix);
-    for (int row = 1; row < n; row++)
-    {
-        randMatrix[row, m - 1] = Math.Round(rand.NextDouble() * 15 + 1, 1);
     }
-    PrintMatrix(randMatrix);
-    for (int column = 0; column < m - 1; column++)
-    {
-        randMatrix[n - 1, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
-    }
-    PrintMatrix(randMatrix);
-    for (int row = 1; row < n - 1; row++)
-    {
-        randMatrix[row, 0] = Math.Round(rand.NextDouble() * 15 + 1, 1);
-    }
-    PrintMatrix(randMatrix);
-    for (int column = 1; column < m - 1; column++)
-    {
-        randMatrix[1, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
-    }
-    PrintMatrix(randMatrix);
-    for (int row = 2; row < n - 1; row++)
-    {
-        randMatrix[row, 2] = Math.Round(rand.NextDouble() * 15 + 1, 1);
-    }
-    PrintMatrix(randMatrix);
-    for (int column = 1; column < m - 2; column++)
-    {
-        randMatrix[2, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
-    }
-    PrintMatrix(randMatrix);
 }
-
 
 Task54();
 Task56();
