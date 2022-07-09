@@ -188,6 +188,56 @@ void Task56()
     Console.WriteLine($"Строка {minRow} с минимальной суммой {minSum}");
 }
 
+/*
+Задача 58: Заполните спирально массив 4 на 4 числами от 1 до 16.
+*/
+void Task58()
+{
+    Console.WriteLine("*Задача 58. Заполнить массив спирально");
+    int n = 4;
+    int m = 4;
+    Random rand = new Random();
+    double[,] randMatrix = new double[4, 4];
+    Console.WriteLine("Полученный массив:");
+    PrintMatrix(randMatrix);
+    for (int column = 0; column < m; column++)
+    {
+        randMatrix[0, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+    for (int row = 1; row < n; row++)
+    {
+        randMatrix[row, m - 1] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+    for (int column = 0; column < m - 1; column++)
+    {
+        randMatrix[n - 1, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+    for (int row = 1; row < n - 1; row++)
+    {
+        randMatrix[row, 0] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+    for (int column = 1; column < m - 1; column++)
+    {
+        randMatrix[1, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+    for (int row = 2; row < n - 1; row++)
+    {
+        randMatrix[row, 2] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+    for (int column = 1; column < m - 2; column++)
+    {
+        randMatrix[2, column] = Math.Round(rand.NextDouble() * 15 + 1, 1);
+    }
+    PrintMatrix(randMatrix);
+}
+
 
 //Task54();
-Task56();
+//Task56();
+Task58();
