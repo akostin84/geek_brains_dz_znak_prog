@@ -155,4 +155,39 @@ void Task54()
     PrintMatrix(randMatrix);
 }
 
-Task54();
+/*
+Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+*/
+
+void Task56()
+{
+    Console.WriteLine("*Задача 56. Вывод номера строки с наименьшей суммой элементов");
+    Console.Write("Введите число строк массива: ");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    Console.Write("Введите число столбцов массива: ");
+    int m = Convert.ToInt32(Console.ReadLine());
+    double[,] randMatrix = FillArray(n, m);
+    Console.WriteLine("Полученный массив:");
+    PrintMatrix(randMatrix);
+    int minRow = 0;
+    double minSum = 0;
+    for (int row = 0; row < n; row++)
+    {
+        double sumRow = 0;
+        for (int column = 0; column < m; column++)
+        {
+            sumRow = sumRow + randMatrix[row, column];
+        }
+        if (minSum > sumRow)
+        {
+            minRow = row;
+            minSum = sumRow;
+    }
+    }
+    Console.WriteLine($"Строка {minRow} с минимальной суммой {minSum}");
+}
+
+
+//Task54();
+Task56();
